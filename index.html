@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindblom Class of 1976 - 50th Reunion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f5f1e8;
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+        
+        /* Navigation Header */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #a73842;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            margin: 0;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: rgb(251, 205, 50);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: rgb(251, 205, 50);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Artistic brush stroke background */
+        .brush-decoration {
+            position: fixed;
+            left: -50px;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .brush-stroke {
+            position: absolute;
+            background-color: #a73842;
+            opacity: 0.8;
+        }
+        
+        .brush-stroke-1 {
+            width: 120px;
+            height: 800px;
+            left: 20px;
+            top: -100px;
+            transform: rotate(-5deg);
+            border-radius: 60px;
+        }
+        
+        .brush-stroke-2 {
+            width: 80px;
+            height: 600px;
+            left: 100px;
+            top: 200px;
+            transform: rotate(8deg);
+            border-radius: 40px;
+            opacity: 0.6;
+        }
+        
+        .brush-stroke-3 {
+            width: 60px;
+            height: 400px;
+            left: 150px;
+            top: 500px;
+            transform: rotate(-3deg);
+            border-radius: 30px;
+            opacity: 0.5;
+        }
+        
+        /* Main container */
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e5d9c6;
+            position: relative;
+            background-color: white;
+        }
+        
+        .logo-container {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .school-logo {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            opacity: 1;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero {
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 1) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            padding: 30px 60px 80px 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .reunion-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #a73842;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+        
+        .reunion-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            color: #a73842;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+        }
+        
+        .school-info {
+            margin-bottom: 30px;
+        }
+        
+        .school-name {
+            font-family: 'Lato', sans-serif;
+            font-size: 45.8px;
+            font-weight: 500;
+            color: #6d4c41;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 
+                0 2.3px 4.6px rgba(0, 0, 0, 0.115),
+                0 1.15px 2.3px rgba(0, 0, 0, 0.1725);
+            transform: translateZ(0);
+        }
+        
+        .class-year {
+            font-family: 'Lato', sans-serif;
+            font-size: 35px;
+            font-weight: 400;
+            color: #8d6e63;
+            margin-bottom: 10px;
+            text-shadow: 
+                0 2.3px 4.6px rgba(0, 0, 0, 0.115),
+                0 1.15px 2.3px rgba(0, 0, 0, 0.1725);
+            transform: translateZ(0);
+        }
+        
+        .reunion-display {
+            margin: 30px 0;
+        }
+        
+        .reunion-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 70px;
+            font-weight: 700;
+            color: #a73842;
+            line-height: 1;
+            letter-spacing: -1px;
+            -webkit-text-stroke: 2px rgb(251, 205, 50);
+            text-stroke: 2px rgb(251, 205, 50);
+            paint-order: stroke fill;
+            text-shadow: 
+                0 3.45px 6.9px rgba(0, 0, 0, 0.1725),
+                0 1.15px 3.45px rgba(0, 0, 0, 0.23);
+            transform: translateZ(0);
+        }
+        
+        .reunion-suffix {
+            font-size: 32px;
+            vertical-align: super;
+            font-weight: 600;
+        }
+        
+        .reunion-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #a73842;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            text-shadow: 
+                0 2.3px 5.75px rgba(0, 0, 0, 0.138),
+                0 1.15px 3.45px rgba(0, 0, 0, 0.207);
+            transform: translateZ(0);
+        }
+        
+        .tagline {
+            font-family: 'Lato', sans-serif;
+            font-size: 21.6px;
+            font-weight: 300;
+            color: #666;
+            font-style: italic;
+            margin-top: 30px;
+        }
+        
+        /* Event Details Section */
+        .event-details {
+            padding: 60px;
+            border-bottom: 1px solid #e5d9c6;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #a73842;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .event-date-location {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .detail-block {
+            text-align: center;
+            padding: 30px;
+            background-color: #faf8f5;
+            border-left: 4px solid #a73842;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .detail-block.location-block {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .detail-block.location-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(167, 56, 66, 0.2);
+        }
+        
+        .detail-block.location-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('Screenshot from 2025-10-24 08-58-04.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.22;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .detail-block > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .detail-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #a73842;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .icon {
+            font-size: 18px;
+            display: inline-block;
+        }
+        
+        .detail-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .welcome-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #444;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Schedule Section */
+        .schedule {
+            padding: 60px;
+            background-color: #faf8f5;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .day-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 30px;
+            background-color: white;
+            border-left: 6px solid #a73842;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .day-item:hover,
+        .day-item.in-view {
+            transform: scale(1.05) translateX(10px);
+            box-shadow: 0 15px 40px rgba(167, 56, 66, 0.25);
+            z-index: 10;
+            background-color: #fffbf5;
+        }
+        
+        .day-date {
+            min-width: 120px;
+            margin-right: 40px;
+        }
+        
+        .day-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #a73842;
+            margin-bottom: 5px;
+        }
+        
+        .date-number {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            color: #8d6e63;
+            font-weight: 400;
+        }
+        
+        .day-events {
+            flex: 1;
+        }
+        
+        .event-item {
+            margin-bottom: 15px;
+        }
+        
+        .event-time {
+            font-weight: 700;
+            color: #a73842;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .event-name {
+            font-size: 18px;
+            color: #333;
+        }
+        
+        /* Registration Section */
+        .registration {
+            padding: 60px;
+            border-top: 1px solid #e5d9c6;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .price-card {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: #faf8f5;
+            border: 2px solid #a73842;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(167, 56, 66, 0.15);
+        }
+        
+        .tap-for-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #a73842;
+            font-weight: 500;
+        }
+        
+        .info-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #a73842;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            color: #333;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #333;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background-color: rgba(167, 56, 66, 0.1);
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #a73842;
+            margin-bottom: 10px;
+            padding-right: 40px;
+        }
+        
+        .modal-description {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .modal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .modal-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .modal-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #a73842;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .price-title {
+            font-family: 'Lato', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #a73842;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .deadline-box {
+            text-align: center;
+            padding: 30px;
+            background-color: #a73842;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .deadline-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .deadline-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background-color: rgb(251, 205, 50);
+            color: #333;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: rgb(235, 190, 40);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 205, 50, 0.4);
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .coming-soon {
+            font-size: 14px;
+            color: #999;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px;
+            background-color: #f5f1e8;
+            border-top: 1px solid #e5d9c6;
+        }
+        
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        .contact-label {
+            font-weight: 700;
+            color: #a73842;
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #a73842;
+            color: white;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-link {
+            color: #ffd89b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: #a73842;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                padding: 10px 0;
+                border-bottom: 1px solid #e5d9c6;
+            }
+            
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+            
+            .brush-decoration {
+                width: 150px;
+                left: -30px;
+            }
+            
+            .brush-stroke-1 {
+                width: 80px;
+                left: 10px;
+            }
+            
+            .brush-stroke-2 {
+                width: 50px;
+                left: 70px;
+            }
+            
+            .brush-stroke-3 {
+                display: none;
+            }
+            
+            .hero {
+                padding: 15px;
+            }
+            
+            .logo-container {
+                border-radius: 10px;
+            }
+            
+            .hero-content {
+                padding: 30px 30px 60px 30px;
+            }
+            
+            .reunion-year {
+                font-size: 56px;
+            }
+            
+            .reunion-text {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+            
+            .school-name {
+                font-size: 18px;
+            }
+            
+            .event-details,
+            .schedule,
+            .registration,
+            .contact {
+                padding: 40px 30px;
+            }
+            
+            .event-date-location {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .day-item {
+                flex-direction: column;
+                padding: 25px;
+            }
+            
+            .day-date {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 10px;
+            }
+            
+            .logo-container {
+                border-radius: 8px;
+            }
+            
+            .reunion-year {
+                font-size: 48px;
+            }
+            
+            .reunion-text {
+                font-size: 24px;
+            }
+            
+            .hero-content {
+                padding: 20px 20px 40px 20px;
+            }
+            
+            .event-details,
+            .schedule,
+            .registration,
+            .contact {
+                padding: 30px 20px;
+            }
+            
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="nav-header">
+        <nav class="nav-container">
+            <img src="eagleman.svg" alt="Lindblom Logo" class="nav-logo">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                ☰
+            </button>
+        </nav>
+    </header>
+    
+    <!-- Artistic brush stroke decoration -->
+    <div class="brush-decoration">
+        <div class="brush-stroke brush-stroke-1"></div>
+        <div class="brush-stroke brush-stroke-2"></div>
+        <div class="brush-stroke brush-stroke-3"></div>
+    </div>
+    
+    <div class="main-wrapper">
+        <div class="content-container">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <div class="logo-container">
+                    <img src="old class photo.jpeg" alt="Class of 1976 Photo" class="school-logo">
+                </div>
+                <div class="hero-content">
+                    <div class="school-info">
+                        <div class="school-name">Lindblom High School</div>
+                        <div class="class-year">Class of 1976</div>
+                    </div>
+                    <div class="reunion-display">
+                        <div class="reunion-number">50<span class="reunion-suffix">th</span></div>
+                        <div class="reunion-label">Reunion</div>
+                    </div>
+                    <div class="tagline">See old friends and raise a glass to our class!</div>
+                </div>
+            </section>
+            
+            <!-- Welcome Message -->
+            <section class="event-details" style="padding-bottom: 30px; border-bottom: none;">
+                <p class="welcome-text">
+                    Welcome to the Lindblom Class Reunion of 1976! We are thrilled to invite you to join us for a memorable celebration of our 50th class reunion. Mark your calendar for an unforgettable reunion weekend with fellow classmates.
+                </p>
+            </section>
+            
+            <!-- Event Details -->
+            <section class="event-details" id="details">
+                <h2 class="section-title">Event Details</h2>
+                
+                <div class="event-date-location">
+                    <div class="detail-block">
+                        <div class="detail-label">
+                            When
+                            <span class="icon">📅</span>
+                        </div>
+                        <div class="detail-value">September 18-20<br>2026</div>
+                    </div>
+                    <div class="detail-block location-block" onclick="window.open('https://www.google.com/maps/place/Marriott+Marquis+Chicago/@41.8540226,-87.6231112,16z/data=!3m1!5s0x880e2c7f97d40151:0xcbd79d4cafb0da6f!4m9!3m8!1s0x880e2c7faee6dc13:0x3431ad87f88215cd!5m2!4m1!1i2!8m2!3d41.8540186!4d-87.6205363!16s%2Fg%2F11cs1f408n?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D', '_blank')">
+                        <div class="detail-label">
+                            Where
+                            <span class="icon">📍</span>
+                        </div>
+                        <div class="detail-value">Marriott Marquis Chicago<br>2121 S Prairie Ave<br>Chicago, IL 60616</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Registration -->
+            <section class="registration" id="registration">
+                <h2 class="section-title">Registration</h2>
+                
+                <div class="pricing-grid">
+                    <div class="price-card" data-modal="full-registration">
+                        <div class="price-title">Full Registration</div>
+                        <div class="price-amount">$350</div>
+                        <div class="tap-for-details">
+                            <span class="info-icon">i</span>
+                            <span>Tap for details</span>
+                        </div>
+                    </div>
+                    <div class="price-card" data-modal="gala-only">
+                        <div class="price-title">Gala Dinner Only</div>
+                        <div class="price-amount">$200</div>
+                        <div class="tap-for-details">
+                            <span class="info-icon">i</span>
+                            <span>Tap for details</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deadline-box">
+                    <div class="deadline-label">Registration Deadline</div>
+                    <div class="deadline-date">Monday, August 24, 2026</div>
+                </div>
+                
+                <div class="button-container">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSS8U8CI7Jva1ERbAAspXtTxgx_fw-UDnmuJnWIgzXuUY7Iw/viewform?usp=publish-editor" target="_blank" class="cta-button">Register Now</a>
+                </div>
+            </section>
+            
+            <!-- Schedule -->
+            <section class="schedule" id="schedule">
+                <h2 class="section-title">Program Schedule</h2>
+                
+                <div class="schedule-grid">
+                    <div class="day-item">
+                        <div class="day-date">
+                            <div class="day-name">Friday</div>
+                            <div class="date-number">September 18, 2026</div>
+                        </div>
+                        <div class="day-events">
+                            <div class="event-item">
+                                <div class="event-time">6:00 PM - 11:00 PM</div>
+                                <div class="event-name">Meet and Greet at the Hospitality Suite</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-item">
+                        <div class="day-date">
+                            <div class="day-name">Saturday</div>
+                            <div class="date-number">September 19, 2026</div>
+                        </div>
+                        <div class="day-events">
+                            <div class="event-item">
+                                <div class="event-time">6:00 PM - 11:00 PM</div>
+                                <div class="event-name">Class Reunion Gala Dinner</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="day-item">
+                        <div class="day-date">
+                            <div class="day-name">Sunday</div>
+                            <div class="date-number">September 20, 2026</div>
+                        </div>
+                        <div class="day-events">
+                            <div class="event-item">
+                                <div class="event-time">8:00 AM - 12:00 PM</div>
+                                <div class="event-name">Sunday Brunch</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact -->
+            <section class="contact" id="contact">
+                <h2 class="section-title">Questions?</h2>
+                
+                <div class="contact-info">
+                    <p style="margin-bottom: 30px; font-size: 18px; color: #555;">
+                        Don't hesitate to reach out with any questions or for further assistance.
+                    </p>
+                    <div class="contact-item">
+                        <span class="contact-label">Contact:</span>
+                        <span>Denise Henderson</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email:</span>
+                        <a href="mailto:nesieh58@gmail.com" style="color: #a73842; text-decoration: none; transition: color 0.3s ease;">nesieh58@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone:</span>
+                        <a href="tel:+12142982415" style="color: #555; text-decoration: none;">(214) 298-2415</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Modal for Full Registration -->
+            <div class="modal-overlay" id="modal-full-registration">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close modal">&times;</button>
+                    <h3 class="modal-title">Full Registration - $350</h3>
+                    <p class="modal-description">The complete, full-weekend reunion experience with your classmates</p>
+                    <ul class="modal-list">
+                        <li>Admission to the Friday Meet and Greet (Sept. 18)</li>
+                        <li>A ticket to the Saturday Class Reunion Gala Dinner (Sept. 19)</li>
+                        <li>A ticket to the Sunday Brunch (Sept. 20)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Modal for Gala Dinner Only -->
+            <div class="modal-overlay" id="modal-gala-only">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close modal">&times;</button>
+                    <h3 class="modal-title">Gala Dinner Only - $200</h3>
+                    <p class="modal-description">A ticket to the Saturday Class Reunion Gala Dinner (Sept. 19).</p>
+                    <p class="modal-description">This option includes the Saturday main event only and does not grant admission to the Friday Meet and Greet or the Sunday Brunch.</p>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-text">&copy; 2026 Lindblom Class of 1976</div>
+                <div class="footer-text">
+                    Developed by <a href="mailto:michaelmmoore@protonmail.com" class="footer-link">Moore Than Code</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        // Add scroll-triggered popup effect for day items
+        function observeDayItems() {
+            const dayItems = document.querySelectorAll('.day-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.5,
+                rootMargin: '-50px'
+            });
+            
+            dayItems.forEach(item => {
+                observer.observe(item);
+                
+                // Remove in-view class when mouse leaves
+                item.addEventListener('mouseleave', () => {
+                    item.classList.remove('in-view');
+                });
+            });
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', observeDayItems);
+        } else {
+            observeDayItems();
+        }
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Modal functionality for price cards
+        const priceCards = document.querySelectorAll('.price-card');
+        const modalOverlays = document.querySelectorAll('.modal-overlay');
+        const modalCloses = document.querySelectorAll('.modal-close');
+        
+        // Open modal when price card is clicked
+        priceCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const modalId = 'modal-' + this.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent background scroll
+                }
+            });
+        });
+        
+        // Close modal when close button is clicked
+        modalCloses.forEach(closeBtn => {
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const modal = this.closest('.modal-overlay');
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+            });
+        });
+        
+        // Close modal when clicking outside the modal content
+        modalOverlays.forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scroll
+                }
+            });
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modalOverlays.forEach(overlay => {
+                    overlay.classList.remove('active');
+                });
+                document.body.style.overflow = ''; // Restore scroll
+            }
+        });
+    </script>
+</body>
+</html>
