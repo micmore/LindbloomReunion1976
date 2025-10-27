@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindblom Class of 1976 - 50th Reunion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <img src="eagleman.svg" alt="Lindblom Logo" class="nav-logo">
+                <div>
+                    <div class="logo-text">Lindblom Class of '76</div>
+                    <div class="logo-subtitle">50th Reunion</div>
+                </div>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-label">September 18-20, 2026</span>
+            <h1 class="hero-title">Celebrating <span class="hero-highlight">50 Years</span> of Memories</h1>
+            <p class="hero-subtitle">Join your Lindblom classmates for an unforgettable reunion weekend filled with nostalgia, laughter, and celebration.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50th</div>
+                    <div class="stat-label">Reunion</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1976</div>
+                    <div class="stat-label">Class Year</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Day Event</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSS8U8CI7Jva1ERbAAspXtTxgx_fw-UDnmuJnWIgzXuUY7Iw/viewform" target="_blank" class="btn btn-primary">Register Now</a>
+                <a href="#details" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section bg-light" id="details">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Event Information</span>
+                <h2 class="section-title">Reunion Details</h2>
+                <p class="section-description">Mark your calendars for three unforgettable days of reconnection and celebration</p>
+            </div>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="event-icon">📅</div>
+                    <div class="event-card-title">When</div>
+                    <div class="event-card-value">September 18-20<br>2026</div>
+                </div>
+                <div class="event-card" onclick="window.open('https://www.google.com/maps/place/Marriott+Marquis+Chicago/@41.8540226,-87.6231112,16z', '_blank')">
+                    <div class="event-icon">📍</div>
+                    <div class="event-card-title">Where</div>
+                    <div class="event-card-value">Marriott Marquis Chicago<br>2121 S Prairie Ave<br>Chicago, IL 60616</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section bg-white" id="schedule">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Schedule</span>
+                <h2 class="section-title">Weekend Program</h2>
+                <p class="section-description">A carefully planned weekend of events to make the most of our time together</p>
+            </div>
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-day">
+                        <div class="schedule-day-name">Friday</div>
+                        <div class="schedule-date">September 18, 2026</div>
+                    </div>
+                    <div class="schedule-event">
+                        <div class="schedule-time">6:00 PM - 11:00 PM</div>
+                        <div class="schedule-event-name">Meet and Greet at the Hospitality Suite</div>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-day">
+                        <div class="schedule-day-name">Saturday</div>
+                        <div class="schedule-date">September 19, 2026</div>
+                    </div>
+                    <div class="schedule-event">
+                        <div class="schedule-time">6:00 PM - 11:00 PM</div>
+                        <div class="schedule-event-name">Class Reunion Gala Dinner</div>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-day">
+                        <div class="schedule-day-name">Sunday</div>
+                        <div class="schedule-date">September 20, 2026</div>
+                    </div>
+                    <div class="schedule-event">
+                        <div class="schedule-time">8:00 AM - 12:00 PM</div>
+                        <div class="schedule-event-name">Sunday Brunch</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section bg-light" id="registration">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Registration</span>
+                <h2 class="section-title">Join Us</h2>
+                <p class="section-description">Choose the registration option that works best for you</p>
+            </div>
+            
+            <div class="deadline-banner">
+                <div class="deadline-label">Registration Deadline</div>
+                <div class="deadline-date">Monday, August 24, 2026</div>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="price-card" data-modal="full">
+                    <div class="price-tag">Full Registration</div>
+                    <div class="price-amount">$350</div>
+                    <div class="price-info">ℹ️ Click for details</div>
+                </div>
+                <div class="price-card" data-modal="gala">
+                    <div class="price-tag">Gala Dinner Only</div>
+                    <div class="price-amount">$200</div>
+                    <div class="price-info">ℹ️ Click for details</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSS8U8CI7Jva1ERbAAspXtTxgx_fw-UDnmuJnWIgzXuUY7Iw/viewform" target="_blank" class="btn btn-primary" style="font-size: 18px; padding: 18px 50px;">Complete Registration</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section bg-white" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Questions?</h2>
+                <p class="section-description">Don't hesitate to reach out with any questions or for further assistance</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Contact Person</div>
+                        <div class="contact-value">Denise Henderson</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:nesieh58@gmail.com">nesieh58@gmail.com</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value"><a href="tel:+12142982415">(214) 298-2415</a></div>
+                    </div>
+                </div>
+                <div style="background: white; border: 1px solid #ddd; padding: 40px; text-align: center;">
+                    <img src="eagleman.svg" alt="Lindblom Eagle" style="width: 180px; opacity: 0.4;">
+                    <p style="margin-top: 20px; font-size: 16px; color: #777;">We look forward to celebrating with you!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">&copy; 2026 Lindblom Class of 1976. All rights reserved.</div>
+            <div class="footer-text">Developed by <a href="mailto:michaelmmoore@protonmail.com" class="footer-link">Moore Than Code</a></div>
+        </div>
+    </footer>
+    
+    <div class="modal" id="modalFull">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">&times;</button>
+                <h3 class="modal-title">Full Registration - $350</h3>
+                <p class="modal-subtitle">The complete reunion experience</p>
+            </div>
+            <div class="modal-body">
+                <ul class="modal-list">
+                    <li>Admission to the Friday Meet and Greet (Sept. 18)</li>
+                    <li>A ticket to the Saturday Class Reunion Gala Dinner (Sept. 19)</li>
+                    <li>A ticket to the Sunday Brunch (Sept. 20)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="modalGala">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">&times;</button>
+                <h3 class="modal-title">Gala Dinner Only - $200</h3>
+                <p class="modal-subtitle">Saturday's main event</p>
+            </div>
+            <div class="modal-body">
+                <ul class="modal-list">
+                    <li>A ticket to the Saturday Class Reunion Gala Dinner (Sept. 19)</li>
+                    <li>Does not include Friday Meet and Greet</li>
+                    <li>Does not include Sunday Brunch</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
